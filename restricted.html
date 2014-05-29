@@ -1,0 +1,179 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- use chrome frame if installed -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>jQuery Restricted Plugin</title>
+  <meta name="description" content="">
+
+  <!-- Mobile viewport optimization -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <style>
+    form {
+      margin-bottom: 12px;
+    }
+    .no-marker {
+      list-style: none;
+      padding: 0 5px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>jQuery Restricted Plugin</h1>
+  <p>Restricted is a jQuery plugin that restricts numerical, alphabetical, and special characters.</p>
+
+  <h2>Restricted Plugin Examples</h2>
+
+  <form>
+    <label><input type="text" class="restricted"></label><br>
+    This is the default input with a class of <i>restricted</i>. It will be restricted to both alphabetical and numeric characters.
+  </form>
+
+  <form>
+    <label><input type="text" class="restricted" data-type="numeric"></label><br>
+    This input is restricted to <i>numerical</i> characters only.
+  </form>
+
+  <form>
+    <label><input type="text" class="restricted" data-type="alphabetical"></label><br>
+    This input is restricted to <i>alphabetical</i> characters only.
+  </form>
+
+  <form>
+    <label><input type="text" class="restricted" data-type="currency"></label><br>
+    This input is restricted to <i>currency</i> characters only.
+  </form>
+
+
+  <h2>Restricted Plugin Dependencies</h2>
+
+  <p>To use restricted, it is recommended that you use jQuery
+     version 1.8+. Reference the jQuery library followed the
+     restricted JavaScript file:</p>
+
+  <code>
+    &lt;!-- load jQuery library --&gt;<br>
+    &lt;script src="/common/js/libs/jquery-1.8.min.js"&gt;&lt;/script&gt;
+    <br>
+    <br>
+    &lt;!-- load restricted plugin --&gt;<br>
+    &lt;script src="jquery-restricted.js"&gt;&lt;/script&gt;<br>
+  </code>
+
+  <p>Now you are ready to use restricted! Below is some example
+     code on the ways you can use it.</p>
+
+
+
+  <h2>Restricted Plugin Options</h2>
+
+  <h3>Options via HTML5 Data Attribute</h3>
+
+  <table border="1">
+    <thead>
+    <tr>
+      <th>Data-Attribute</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td><code>data-type</code></td>
+      <td>
+        <ul class="no-marker">
+          <li><code>alphabetical</code></li>
+          <li><code>numeric</code></li>
+          <li><code>alphanumeric</code></li>
+        </ul>
+      </td>
+      <td>
+        Restricts field to specified character type.
+
+        <p>
+          <small>NOTE: <code>alphanumeric</code> is the default type and is therefore optional and does not need to be set.</small>
+        </p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h4>Example</h4>
+
+  <p>
+    <code>
+      &lt;input type="text" class="restricted" data-type="<em>data-type</em>"&gt;
+    </code>
+  </p>
+
+
+  <h3>Options via JavaScript Property</h3>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code>type</code></td>
+        <td>
+          <ul class="no-marker">
+            <li><code>alphabetical</code></li>
+            <li><code>numeric</code></li>
+            <li><code>alphanumeric</code></li>
+          </ul>
+        </td>
+        <td>
+          Restricts field to specified character type.
+
+          <p>
+            <small>NOTE: <code>alphanumeric</code> is the default type and is therefore optional and does not need to be set.</small>
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Example</h4>
+
+  <p>
+    <code>
+      $('.restricted').restricted({ type: <em>type</em> });
+    </code>
+  </p>
+
+
+
+<!-- JavaScript at the bottom for faster page loading -->
+
+<!-- Libraries -->
+<!-- jQuery(UI): Google CDN w/ protocol relative URL -->
+<script src="/boilerplate/master/js/vendor/jquery.min.js"></script>
+
+<!-- Site/App Scripts: concat and minify for prod -->
+<script src="jquery-restricted.js"></script>
+
+<script>
+
+  $('.restricted').restricted();
+
+</script>
+
+</body>
+</html>
