@@ -1,4 +1,4 @@
-/* jquery-restricted.js
+/*! jquery-restricted.js
  *
  * Authored by: Cory Dorning & Brett Metzger
  *
@@ -41,8 +41,7 @@
         // currency characters
         // only allows numeric $ and .
         currency = function(keycode) {
-        console.log(keycode);
-          return keycode === 36 || keycode === 46 || numeric(keycode);
+          return keycode === 44 || keycode === 45 || keycode === 46 || numeric(keycode);
         },
 
         // numerical character?
