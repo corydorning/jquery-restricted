@@ -1,0 +1,22 @@
+{
+  "name": "jquery-restricted",
+  "main": "jquery-restricted.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/corydorning/jquery-restricted",
+  "authors": [
+    "Cory Dorning <cory@dorning.me>"
+  ],
+  "description": "The jQuery plugin restricted allows you to restrict alphabetical or numeric characters. It defaults to restricting just special characters and allows alphanumeric input. You can specify restrictions through the data-type attribute on your input.",
+  "keywords": [
+    "jquery",
+    "restricted"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
