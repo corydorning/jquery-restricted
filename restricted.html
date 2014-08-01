@@ -54,6 +54,11 @@
     This input is restricted to <i>currency</i> characters only.
   </form>
 
+  <form>
+    <label><input type="text" class="restricted" data-allowed='["+", "-", "!"]'></label><br>
+    This input is restricted to alphanumeric characters and allowed characters <i>+, -, !</i> using the data-allowed attribute.
+  </form>
+
 
   <h2>Restricted Plugin Dependencies</h2>
 
@@ -106,6 +111,12 @@
         </p>
       </td>
     </tr>
+
+    <tr>
+      <td><code>data-allowed</code></td>
+      <td>Any special, alphabetical or numeric character.</td>
+      <td>Restricts field to specified characters.</td>
+    </tr>
     </tbody>
   </table>
 
@@ -114,6 +125,12 @@
   <p>
     <code>
       &lt;input type="text" class="restricted" data-type="<em>data-type</em>"&gt;
+    </code>
+  </p>
+
+  <p>
+    <code>
+      &lt;input type="text" class="restricted" data-allowed="<em>character</em>"&gt;
     </code>
   </p>
 
@@ -147,6 +164,12 @@
           </p>
         </td>
       </tr>
+
+      <tr>
+        <td><code>data-allowed</code></td>
+        <td>Any special, alphabetical or numeric character.</td>
+        <td>Restricts field to specified characters.</td>
+      </tr>
     </tbody>
   </table>
 
@@ -155,6 +178,12 @@
   <p>
     <code>
       $('.restricted').restricted({ type: <em>type</em> });
+    </code>
+  </p>
+
+  <p>
+    <code>
+      $('.restricted').restricted({ allowed: <em>character</em> });
     </code>
   </p>
 

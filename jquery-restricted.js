@@ -23,7 +23,8 @@
 
         // set any defaults
     var defaults = {
-          type: 'alphanumeric' // default value of input type restriction
+          type: 'alphanumeric', // default value of input type restriction
+          allowed: false
         },
 
         // overwrite 'defaults' with those passed via 'options'
@@ -54,9 +55,50 @@
           return alphabetical(keycode) || numeric(keycode);
         },
 
+        allowedChar = function(allowed, keycode) {
+          var valid = false;
+
+          for(var i = 0; i < allowed.length; i++) {
+            var curr = allowed[i],
+              char = charList[curr];
+
+              console.log("allowed:" + char, "keycode:" + keycode);
+
+            if(char === keycode){
+              valid = true;
+              break;
+            }
+
+          }
+
+          return valid;
+        },
+
+        // allowed characters
+        charList = {
+          "!" : 33,
+          "@" : 64,
+          "#" : 35,
+          "$" : 36,
+          "%" : 37,
+          "^" : 94,
+          "&" : 38,
+          "*" : 42,
+          "(" : 40,
+          ")" : 41,
+          "-" : 45,
+          "_" : 95,
+          "=" : 61,
+          "+" : 43
+        },
+
         // valid variable
-        validKey = function(e, type){
+        validKey = function(e, data){
           var valid = false,
+
+              type = data.type,
+
+              allowed = data.allowed,
 
               // try charCode instead of which for FF
               // as all 'special' keys will return 0
@@ -76,6 +118,11 @@
             return;
           }
 
+          //check allowed
+          if(allowed && !valid) {
+            valid = allowedChar(allowed, keycode);
+          }
+
           if (!valid && keycode) {
             // invalid value && not a special key (FF)
             // so we prevent the default action
@@ -93,12 +140,13 @@
     return $sel.each(function() {
           // current, single instance of $sel
       var $this = $(this),
-
-          //get types
-          type = $this.data('type') || settings.type;
+          data = {
+            allowed: $this.data('allowed') || settings.allowed,
+            type: $this.data('type') || settings.type
+          };
 
       $this.on('keypress', function(e){
-        validKey(e, type);
+        validKey(e, data);
       });
 
     });
